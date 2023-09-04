@@ -9,12 +9,16 @@ async function fetchUsers() {
 export default async function Home() {
   const users = await fetchUsers();
   return (
-    <main>
+    <main className="p-4">
       <h1>Users List</h1>
-      <ul>
+      <ul className="flex flex-wrap gap-2 max">
         {users.map((user) => (
-          <li key={user.id}>
+          <li
+            key={user.id}
+            className="flex  bg-slate-400 rounded-xl p-4 w-full items-center justify-between"
+          >
             <Image
+              className="rounded-full"
               src={user.avatar}
               alt="avatar image"
               width={80}
@@ -28,7 +32,6 @@ export default async function Home() {
             </hgroup>
           </li>
         ))}
-        ;
       </ul>
     </main>
   );
